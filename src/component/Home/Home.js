@@ -1,13 +1,13 @@
 import React from 'react';
 import Footer from '../Footer/Footer';
 import Menu from './Menu';
-import Post from './Post';
+import Posts from './Posts';
 
 const Home = () => {
     return (
         <div>
             <Menu/>
-            <Post/>
+            <Posts/>
             <Footer/>
         </div>
     );
