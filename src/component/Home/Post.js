@@ -1,10 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Post = ({post}) => {
-    const { name, image, } = post;
+    const {_id, name, image, } = post;
     console.log("check post", post);
+
+    const navigate = useNavigate();
+
+    const navigateToServiceDetail = id =>{
+        navigate(`/service/${id}`);
+    }
+
     return (
-            <div style={{ background: 'rgb(255 255 255)' }} className=' w-96 mx-auto p-3
+            <div
+            onClick={() => navigateToServiceDetail(_id)} 
+            style={{ background: 'rgb(255 255 255)' }} className=' w-96 mx-auto p-3
             transition ease-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300
             rounded shadow-2xl d-flex justify-start' >
                 <div> <img src={image} alt="" /> </div>
