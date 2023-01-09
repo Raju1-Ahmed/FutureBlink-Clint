@@ -31,7 +31,7 @@ const Menu = () => {
           </div>
           <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-              <li><a>Item 1</a></li>
+              <li> <Link to='/signup'>SignUp</Link></li>
               <li tabindex="0">
                 <a>
                   Parent

@@ -4,6 +4,8 @@ import Footer from './component/Footer/Footer';
 import Home from './component/Home/Home';
 import Menu from './component/Home/Menu';
 import SinglePost from './component/Home/SinglePost';
+import RequireAuth from './component/RequireAuth';
+import Signup from './component/Signup';
 
 function App() {
   return (
@@ -11,7 +13,8 @@ function App() {
     <Menu/>
        <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/service/:serviceId' element={<SinglePost/>}/>
+        <Route path="/signup" element={<Signup />} />
+        <Route path='/service/:serviceId' element={ <RequireAuth><SinglePost/></RequireAuth> }/>
       </Routes>
       <Footer/>
     </div>
