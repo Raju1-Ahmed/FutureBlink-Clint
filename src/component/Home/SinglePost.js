@@ -13,6 +13,7 @@ const SinglePost = () => {
     const PF = "https://futureblinkserver.onrender.com/images/";
     const { serviceId } = useParams();
     const [service, setService] = useState({});
+    console.log("service",service );
     const [user,] = useAuthState(auth);
 
     useEffect(() => {
@@ -52,7 +53,7 @@ const SinglePost = () => {
                 <div className='flex ml-12 '>
                     <div className='flex justify-evenly  items-center '>
                         <div className='pr-1 '> <img src="https://img.icons8.com/material-outlined/20/737373/user--v1.png" /> </div>
-                        <div> <h2 className=' text-blue-600 font-bold text-sm font-serif '>{user.displayName}</h2> </div>
+                        <div> <h2 className=' text-blue-600 font-bold text-sm font-serif '>{service.userName}</h2> </div>
                     </div>
                     <div className='flex justify-evenly items-center ml-12 '>
                         <div className='pr-1'> <img src="https://img.icons8.com/ios/17/737373/menu-rounded.png" /> </div>
