@@ -2,8 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Post = ({post}) => {
-    const PF = "http://localhost:5000/images/";
+    console.log(post);
+    const PF = "https://futureblinkserver.onrender.com/images/";
     const {_id, title, photo, date } = post;
+    // const { userId, userName, userComment,  } = post;
     console.log("check post", post);
 
     const navigate = useNavigate();
@@ -15,7 +17,7 @@ const Post = ({post}) => {
     return (
             <div
             onClick={() => navigateToServiceDetail(_id)} 
-            style={{ background: 'rgb(255 255 255)' }} className=' w-96 mx-auto p-3
+            style={{ background: 'rgb(255 255 255)' }} className=' w-96 mx-auto 
             transition ease-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300
             rounded shadow-2xl d-flex justify-start' >
                 <div> <img src={PF + photo} alt="" /> </div>

@@ -40,20 +40,20 @@ const AddPost = () => {
             data.append("file", file);
             newPost.photo = filename;
             try {
-                await axios.post("http://localhost:5000/upload", data)
+                await axios.post("https://futureblinkserver.onrender.com/upload", data)
             } catch (error) { }
 
         }
         try {
-            const res = await axios.post('/http://localhost:5000/post', newPost);
+            const res = await axios.post('/https://futureblinkserver.onrender.com/post', newPost);
             window.location.replace("/post" + res.data._id);
         } catch (error) { }
 
-        axios.post('http://localhost:5000/post', newPost)
+        axios.post('https://futureblinkserver.onrender.com/post', newPost)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
-                    toast('Your Users is Added');
+                    toast('Your Blog is Posted');
                     e.target.reset();
                 }
             })

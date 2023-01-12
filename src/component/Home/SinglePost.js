@@ -10,15 +10,13 @@ import ShowComments from './ShowComments';
 
 
 const SinglePost = () => {
-    const PF = "http://localhost:5000/images/";
+    const PF = "https://futureblinkserver.onrender.com/images/";
     const { serviceId } = useParams();
     const [service, setService] = useState({});
     const [user,] = useAuthState(auth);
 
-   
-
     useEffect(() => {
-        const url = `http://localhost:5000/service/${serviceId}`;
+        const url = `https://futureblinkserver.onrender.com/service/${serviceId}`;
         // console.log("test url", url);
         fetch(url)
             .then(res => res.json())
@@ -30,15 +28,15 @@ const SinglePost = () => {
     const makeComment = event => {
         event.preventDefault();
         const newPost = {
-            id: serviceId,
+            userId: serviceId,
             userName: user.displayName,
             email: user.email,
-            comment: event.target.comment.value,
-            date: date_time,
+            UserComment: event.target.comment.value,
+            commentDate: date_time,
 
         }
         console.log(newPost);
-        axios.post('http://localhost:5000/comment', newPost)
+        axios.post('https://futureblinkserver.onrender.com/comment', newPost)
         .then(response => {
             const { data } = response;
             if (data.insertedId) {
@@ -92,10 +90,9 @@ const SinglePost = () => {
                     {service.desc}
                 </p>
             </div>
-            <div>
-                <ShowComments/>
-            {/* <UsersComments/> */}
-
+            
+        <div >
+            <ShowComments/>
             </div>
         <form   onSubmit={makeComment}>
         <div className='flex justify-center w-full  border-b'>
