@@ -5,13 +5,16 @@ import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment'
+import { useNavigate } from 'react-router-dom';
 
 const AddPost = () => {
     const [user,] = useAuthState(auth);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [file, setFile] = useState(null);
-    
+
+    const navigate = useNavigate();
+
 
     const handleChangeTitle = (e) => {
         setTitle(e.target.value);
@@ -32,7 +35,7 @@ const AddPost = () => {
             date: date_time,
 
         }
-    console.log(newPost)
+        console.log(newPost)
         if (file) {
             const data = new FormData();
             const filename = Date.now() + '-' + file.name;
@@ -52,9 +55,11 @@ const AddPost = () => {
         axios.post('https://futureblinkserver.onrender.com/post', newPost)
             .then(response => {
                 const { data } = response;
+                console.log("have Data!", data);
                 if (data.insertedId) {
                     toast('Your Blog is Posted');
-                    e.target.reset();
+                    navigate(`/`);
+
                 }
             })
 
